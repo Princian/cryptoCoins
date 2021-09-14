@@ -1,0 +1,12 @@
+.ticker{
+    background-color:black;
+    width: 10%;
+    height: 100%;
+    border-color: brown;
+    border-left: 100px;
+    
+    min-width: 100px;
+
+    text-align: center;
+    font-size: 20px;
+}

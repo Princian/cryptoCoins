@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Coin from './Coin';
+import Footer from './Footer';
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -14,7 +15,7 @@ function App() {
       )
       .then(res => {
         setCoins(res.data);
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch(error => console.log(error));
   }, []);
@@ -26,6 +27,8 @@ function App() {
   const filteredCoins = coins.filter(coin =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const tickerCoins = [filteredCoins[0], filteredCoins[1], filteredCoins[2], filteredCoins[3], filteredCoins[4]];
 
   return (
     <div className='coin-app'>
@@ -54,6 +57,7 @@ function App() {
           />
         );
       })}
+      <Footer coins={filteredCoins}/>
     </div>
   );
 }
